@@ -9,7 +9,14 @@ const Todos = () => {
     <>
       <TodoInput setTodos={setTodos} />
       {todos.map((todo, i) => (
-        <Todo key={i} task={todo.task} isCompleted={todo.isCompleted} />
+        <Todo
+          key={i}
+          id={i}
+          task={todo.task}
+          isCompleted={todo.isCompleted}
+          setTodos={setTodos}
+          todos={todos}
+        />
       ))}
     </>
   );
