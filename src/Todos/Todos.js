@@ -1,25 +1,12 @@
-import React from "react";
+import { React, useState } from "react";
 import { Todo } from "../Todo/Todo";
-
-const defaultState = [
-  {
-    task: "Work on React project",
-    isCompleted: false,
-  },
-  {
-    task: "Buy more face masks",
-    isCompleted: true,
-  },
-  {
-    task: "Finish reading The Scarlet Letter",
-    isCompleted: false,
-  },
-];
+import { defaultState } from "../utils/defaultState";
 
 const Todos = () => {
+  const [todos] = useState(defaultState);
   return (
     <>
-      {defaultState.map((todo) => (
+      {todos.map((todo) => (
         <Todo task={todo.task} isCompleted={todo.isCompleted} />
       ))}
     </>
