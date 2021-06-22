@@ -8,8 +8,7 @@ const Todo = ({ id, task, isCompleted, setTodos, todos }) => {
 
   const handleClick = () => {
     setTodos(todos => {
-      todos.splice(id, 1)
-      return [...todos]
+      return [...todos.slice(0, id), ...todos.slice(id + 1)];
     })
   }
 
@@ -17,7 +16,7 @@ const Todo = ({ id, task, isCompleted, setTodos, todos }) => {
     <div className="Todo--container">
       <input
         type="checkbox"
-        defaultChecked={isCompleted}
+        checked={isCompleted}
         onChange={handleChange}
       />
       <label>{task}</label>
