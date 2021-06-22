@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid'
 import { React, useState } from "react";
 import { Todo } from "../Todo/Todo";
 import { defaultState } from "../utils/defaultState";
@@ -24,7 +25,7 @@ const Todos = () => {
       .filter(todo => completedFilter === null ? todo : todo.isCompleted === completedFilter)
       .map((todo, i) => (
         <Todo
-          key={i}
+          key={nanoid()}
           id={i}
           task={todo.task}
           isCompleted={todo.isCompleted}
