@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { Todo } from "../Todo/Todo";
 import { defaultState } from "../utils/defaultState";
+import { filterEnum } from "../utils/filterEnum";
 import { TodoInput } from "../TodoInput/TodoInput";
 
 const Todos = () => {
@@ -10,6 +11,11 @@ const Todos = () => {
 
   const handleClick = () => {
     setTodos(todos.filter(todo => !todo.isCompleted))
+  }
+
+  const handleFilterClick = (e) => {
+    const val = e.target.id;
+    setCompletedFilter(filterEnum[val])
   }
   return (
     <>
@@ -27,6 +33,12 @@ const Todos = () => {
         />
       ))}
     <button onClick={handleClick}>Clear completed</button>
+    {/* making use of event propagation 🎉 */}
+    <div onClick={handleFilterClick}>
+      <button id="all">All</button>
+      <button id="active">Active</button>
+      <button id="completed">Completed</button>
+    </div>
     <p>{completedTodosNum} items left</p>
     </>
   );
