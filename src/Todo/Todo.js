@@ -6,6 +6,13 @@ const Todo = ({ id, task, isCompleted, setTodos, todos }) => {
     setTodos((todos) => [...todos]);
   };
 
+  const handleClick = () => {
+    setTodos(todos => {
+      todos.splice(id, 1)
+      return [...todos]
+    })
+  }
+
   return (
     <div className="Todo--container">
       <input
@@ -14,6 +21,7 @@ const Todo = ({ id, task, isCompleted, setTodos, todos }) => {
         onChange={handleChange}
       />
       <label>{task}</label>
+      <button onClick={handleClick}>❌</button>
     </div>
   );
 };
