@@ -5,6 +5,7 @@ import { TodoInput } from "../TodoInput/TodoInput";
 
 const Todos = () => {
   const [todos, setTodos] = useState(defaultState);
+  const [completedFilter, setCompletedFilter] = useState(null);
   const completedTodosNum = todos.filter(todo => !todo.isCompleted).length;
 
   const handleClick = () => {
@@ -13,7 +14,9 @@ const Todos = () => {
   return (
     <>
       <TodoInput setTodos={setTodos} />
-      {todos.map((todo, i) => (
+      {todos
+      .filter(todo => completedFilter === null ? todo : todo.isCompleted === completedFilter)
+      .map((todo, i) => (
         <Todo
           key={i}
           id={i}
