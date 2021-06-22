@@ -6,6 +6,10 @@ import { TodoInput } from "../TodoInput/TodoInput";
 const Todos = () => {
   const [todos, setTodos] = useState(defaultState);
   const completedTodosNum = todos.filter(todo => !todo.isCompleted).length;
+
+  const handleClick = () => {
+    setTodos(todos.filter(todo => !todo.isCompleted))
+  }
   return (
     <>
       <TodoInput setTodos={setTodos} />
@@ -19,6 +23,7 @@ const Todos = () => {
           todos={todos}
         />
       ))}
+    <button onClick={handleClick}>Clear completed</button>
     <p>{completedTodosNum} items left</p>
     </>
   );
