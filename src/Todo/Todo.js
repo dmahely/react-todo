@@ -7,14 +7,14 @@ const Todo = ({ id, task, isCompleted, setTodos, todos }) => {
   };
 
   const handleDeleteClick = () => {
-    setTodos(todos => {
+    setTodos((todos) => {
       return [...todos.slice(0, id), ...todos.slice(id + 1)];
-    })
-  }
+    });
+  };
 
   return (
     <div className="Todo--container">
-      <button onClick={handleCompleteClick}>{isCompleted ? '✔️' : '🔘'}</button>
+      <button onClick={handleCompleteClick}>{isCompleted ? "✔️" : "🔘"}</button>
       <label>{task}</label>
       <button onClick={handleDeleteClick}>❌</button>
     </div>

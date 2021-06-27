@@ -11,8 +11,15 @@ const Todos = () => {
   const [completedFilter, setCompletedFilter] = useState(null);
   const completedTodosNum = todos.filter((todo) => !todo.isCompleted).length;
 
-  const handleClick = () => {
+  const handleClearClick = () => {
     setTodos(todos.filter((todo) => !todo.isCompleted));
+  };
+
+  const handleCompleteAllClick = () => {
+    setTodos((todos) => {
+      todos.map((todo) => (todo.isCompleted = true));
+      return [...todos];
+    });
   };
 
   const handleFilterClick = (e) => {
@@ -36,7 +43,8 @@ const Todos = () => {
             todos={todos}
           />
         ))}
-      <button onClick={handleClick}>Clear completed</button>
+      <button onClick={handleCompleteAllClick}>Complete all</button>
+      <button onClick={handleClearClick}>Clear completed</button>
       <Filter handleFilterClick={handleFilterClick} />
       <p>{completedTodosNum} items left</p>
     </>
