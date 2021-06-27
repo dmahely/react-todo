@@ -1,12 +1,12 @@
 import React from "react";
 
 const Todo = ({ id, task, isCompleted, setTodos, todos }) => {
-  const handleChange = (e) => {
-    todos[id].isCompleted = e.currentTarget.checked;
+  const handleCompleteClick = (e) => {
+    todos[id].isCompleted = !todos[id].isCompleted;
     setTodos((todos) => [...todos]);
   };
 
-  const handleClick = () => {
+  const handleDeleteClick = () => {
     setTodos(todos => {
       return [...todos.slice(0, id), ...todos.slice(id + 1)];
     })
@@ -14,13 +14,9 @@ const Todo = ({ id, task, isCompleted, setTodos, todos }) => {
 
   return (
     <div className="Todo--container">
-      <input
-        type="checkbox"
-        checked={isCompleted}
-        onChange={handleChange}
-      />
+      <button onClick={handleCompleteClick}>{isCompleted ? '✔️' : '🔘'}</button>
       <label>{task}</label>
-      <button onClick={handleClick}>❌</button>
+      <button onClick={handleDeleteClick}>❌</button>
     </div>
   );
 };
