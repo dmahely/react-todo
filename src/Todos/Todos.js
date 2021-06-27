@@ -64,7 +64,9 @@ const Todos = () => {
       <button onClick={handleCompleteAllClick}>Complete all</button>
       <button onClick={handleClearClick}>Clear completed</button>
       <Filter handleFilterClick={handleFilterClick} />
-      <p>{completedTodosNum} items left</p>
+      <p>
+        {completedTodosNum} {completedTodosNum > 1 ? "items" : "item"} left
+      </p>
     </>
   );
 };
