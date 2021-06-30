@@ -12,9 +12,9 @@ const Todos = () => {
 
   // onComponentDidMount
   useEffect(() => {
-    // if local storage is empty, save default state there
+    // if local storage is empty, set state to default state
     if (localStorage.getItem("todos") === null) {
-      localStorage.setItem("todos", JSON.stringify(defaultState));
+      setTodos([...defaultState]); // this will trigger the second useEffect
     }
     // otherwise populate the state with data in local storage
     else {
