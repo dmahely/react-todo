@@ -29,14 +29,16 @@ const TodoInput = ({ setTodos }) => {
   };
   return (
     <div className="TodoInput--container">
-      <button
-        className={cx("TodoInput--button", {
-          "TodoInput--button-checked": newTodo.isCompleted,
-        })}
-        onClick={handleClick}
-      >
-        <img src={check} alt="Check" />
-      </button>
+      <div className="TodoInput--button-container">
+        <button
+          className={cx("TodoInput--button", {
+            "TodoInput--button-checked": newTodo.isCompleted,
+          })}
+          onClick={handleClick}
+        >
+          <img src={check} alt="Check" />
+        </button>
+      </div>
       <input
         type="text"
         placeholder="Create a new todo..."
