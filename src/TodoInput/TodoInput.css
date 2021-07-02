@@ -17,10 +17,16 @@
   border-radius: 50%;
   margin: 0 10px;
   background-color: white;
+  display: flex;
 }
 
 .TodoInput--button:hover {
   cursor: pointer;
+}
+
+.TodoInput--button-checked {
+  background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border: none;
 }
 
 .TodoInput--input {
