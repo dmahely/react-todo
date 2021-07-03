@@ -12,8 +12,8 @@ function App() {
     <div
       className={cx(
         "App",
-        { "theme-dark": isDark },
-        { "theme-light": !isDark }
+        { "App--theme-dark": isDark },
+        { "App--theme-light": !isDark }
       )}
     >
       <ThemeContext.Provider value={theme}>

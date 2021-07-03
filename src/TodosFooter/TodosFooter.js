@@ -13,7 +13,7 @@ const TodosFooter = ({
     <div className="TodosFooter--container">
       <div className="TodosFooter--row">
         <span className="TodosFooter--completedTodos">
-          {completedTodosNum} {completedTodosNum > 1 ? "items" : "item"} left
+          {completedTodosNum} {completedTodosNum === 1 ? "item" : "items"} left
         </span>
         <span
           className="TodosFooter--complete-all"

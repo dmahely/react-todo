@@ -25,15 +25,3 @@ html {
 body {
   margin: 0;
 }
-
-.theme-light {
-  --bg-color: var(--very-light-gray);
-  --todo-bg-color: var(--white);
-  --todo-color: var(--black);
-}
-
-.theme-dark {
-  --bg-color: var(--very-dark-blue);
-  --todo-bg-color: var(--very-dark-desaturated-blue);
-  --todo-color: var(--white);
-}

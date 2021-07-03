@@ -1,4 +1,28 @@
 .App {
-  background-image: url("./images/bg-desktop-light.jpg");
+  background-image: var(--bg-image);
   background-repeat: no-repeat;
+}
+
+.App--theme-light {
+  --bg-color: var(--very-light-gray);
+  --todo-bg-color: var(--white);
+  --todo-color: var(--black);
+  --bg-image: url("./images/bg-desktop-light.jpg");
+}
+
+.App--theme-dark {
+  --bg-color: var(--very-dark-blue);
+  --todo-bg-color: var(--very-dark-desaturated-blue);
+  --todo-color: var(--white);
+  --bg-image: url("./images/bg-desktop-dark.jpg");
+}
+
+@media screen and (max-width: 400px) {
+  .App--theme-light {
+    --bg-image: url("./images/bg-mobile-light.jpg");
+  }
+
+  .App--theme-dark {
+    --bg-image: url("./images/bg-mobile-dark.jpg");
+  }
 }
