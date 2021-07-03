@@ -24,7 +24,7 @@
 }
 
 .Todo--checked {
-  background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background: var(--checked);
   border: none;
 }
 
@@ -39,6 +39,15 @@
   margin-right: 10px;
 }
 
-.Todo--delete:hover {
+.Todo--delete:hover,
+.Todo--task:hover {
   cursor: pointer;
+}
+
+.Todo--checkmark {
+  display: none;
+}
+
+.Todo--checkmark-checked {
+  display: block;
 }

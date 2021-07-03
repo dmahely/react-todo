@@ -36,7 +36,13 @@ const TodoInput = ({ setTodos }) => {
           })}
           onClick={handleClick}
         >
-          <img src={check} alt="Check" />
+          <img
+            className={cx("Todo--checkmark", {
+              "Todo--checkmark-checked": newTodo.isCompleted,
+            })}
+            src={check}
+            alt="Check"
+          />
         </button>
       </div>
       <input

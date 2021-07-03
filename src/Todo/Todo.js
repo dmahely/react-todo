@@ -25,7 +25,13 @@ const Todo = ({ id, task, isCompleted, setTodos, todos }) => {
           })}
           onClick={handleCompleteClick}
         >
-          <img src={check} alt="Check" />
+          <img
+            className={cx("Todo--checkmark", {
+              "Todo--checkmark-checked": isCompleted,
+            })}
+            src={check}
+            alt="Check"
+          />
         </button>
         <label className="Todo--task">{task}</label>
       </div>

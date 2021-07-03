@@ -6,6 +6,7 @@
 .Todos--inner-container {
   margin-top: 20px;
   border-radius: 5px;
-  background-color: white;
+  background-color: var(--todo-bg-color);
+  color: var(--todo-color);
   box-shadow: 6px 9px 31px -6px rgba(0, 0, 0, 0.75);
 }
