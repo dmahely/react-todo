@@ -1,4 +1,8 @@
 import React from "react";
+import cross from "../images/icon-cross.svg";
+import check from "../images/icon-check.svg";
+import "./Todo.css";
+import cx from "classnames";
 
 const Todo = ({ id, task, isCompleted, setTodos, todos }) => {
   const handleCompleteClick = (e) => {
@@ -14,9 +18,25 @@ const Todo = ({ id, task, isCompleted, setTodos, todos }) => {
 
   return (
     <div className="Todo--container">
-      <button onClick={handleCompleteClick}>{isCompleted ? "✔️" : "🔘"}</button>
-      <label>{task}</label>
-      <button onClick={handleDeleteClick}>❌</button>
+      <div className="Todo--left">
+        <button
+          className={cx("Todo--complete", {
+            "Todo--checked": isCompleted,
+          })}
+          onClick={handleCompleteClick}
+        >
+          <img src={check} alt="Check" />
+        </button>
+        <label className="Todo--task">{task}</label>
+      </div>
+      <div className="Todo--right">
+        <img
+          className="Todo--delete"
+          src={cross}
+          alt="Cross icon"
+          onClick={handleDeleteClick}
+        />
+      </div>
     </div>
   );
 };
