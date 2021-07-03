@@ -2,9 +2,10 @@ import { nanoid } from "nanoid";
 import { React, useEffect, useState } from "react";
 import { Todo } from "../Todo/Todo";
 import { defaultState } from "../utils/defaultState";
-import { filterEnum } from "../utils/filterEnum";
 import { TodoInput } from "../TodoInput/TodoInput";
-import { Filter } from "../Filter/Filter";
+import { TodosFooter } from "../TodosFooter/TodosFooter";
+import { TodosHeader } from "../TodosHeader/TodosHeader";
+import "./Todos.css";
 
 const Todos = () => {
   const [todos, setTodos] = useState([]);
@@ -40,34 +41,36 @@ const Todos = () => {
     });
   };
 
-  const handleFilterClick = (e) => {
-    const val = e.target.id;
-    setCompletedFilter(filterEnum[val]);
-  };
   return (
-    <>
+    <div className="Todos--container">
+      <TodosHeader />
       <TodoInput setTodos={setTodos} />
-      {todos
-        .filter((todo) =>
-          completedFilter === null ? todo : todo.isCompleted === completedFilter
-        )
-        .map((todo, i) => (
-          <Todo
-            key={nanoid()}
-            id={i}
-            task={todo.task}
-            isCompleted={todo.isCompleted}
-            setTodos={setTodos}
-            todos={todos}
-          />
-        ))}
-      <button onClick={handleCompleteAllClick}>Complete all</button>
-      <button onClick={handleClearClick}>Clear completed</button>
-      <Filter handleFilterClick={handleFilterClick} />
-      <p>
-        {completedTodosNum} {completedTodosNum > 1 ? "items" : "item"} left
-      </p>
-    </>
+      <div className="Todos--inner-container">
+        {todos
+          .filter((todo) =>
+            completedFilter === null
+              ? todo
+              : todo.isCompleted === completedFilter
+          )
+          .map((todo, i) => (
+            <Todo
+              key={nanoid()}
+              id={i}
+              task={todo.task}
+              isCompleted={todo.isCompleted}
+              setTodos={setTodos}
+              todos={todos}
+            />
+          ))}
+        <TodosFooter
+          completedTodosNum={completedTodosNum}
+          handleClearClick={handleClearClick}
+          setCompletedFilter={setCompletedFilter}
+          completedFilter={completedFilter}
+          handleCompleteAllClick={handleCompleteAllClick}
+        />
+      </div>
+    </div>
   );
 };
 

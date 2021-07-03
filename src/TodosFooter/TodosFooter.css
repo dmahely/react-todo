@@ -1,0 +1,24 @@
+.TodosFooter--container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+.TodosFooter--complete-all,
+.TodosFooter--clear-all {
+  opacity: 0.5;
+}
+
+.TodosFooter--complete-all:hover,
+.TodosFooter--clear-all:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.TodosFooter--row {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}

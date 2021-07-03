@@ -1,0 +1,11 @@
+.Todos--container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.Todos--inner-container {
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 6px 9px 31px -6px rgba(0, 0, 0, 0.75);
+}

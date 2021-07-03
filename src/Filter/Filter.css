@@ -1,0 +1,19 @@
+.Filter--container {
+  display: flex;
+  justify-content: space-evenly;
+  flex: 1;
+}
+
+.Filter--value {
+  opacity: 0.5;
+}
+
+.Filter--value:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.Filter--value-active {
+  color: blue;
+  opacity: 1;
+}

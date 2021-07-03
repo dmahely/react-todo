@@ -1,12 +1,41 @@
 import React from "react";
+import "./Filter.css";
+import { filterEnum } from "../utils/filterEnum";
+import cx from "classnames";
 
-const Filter = ({ handleFilterClick }) => {
+const Filter = ({ setCompletedFilter, completedFilter }) => {
+  const handleFilterClick = (e) => {
+    const val = e.target.id;
+    setCompletedFilter(filterEnum[val]);
+  };
+
   /* making use of event propagation 🎉 */
   return (
-    <div onClick={handleFilterClick}>
-      <button id="all">All</button>
-      <button id="active">Active</button>
-      <button id="completed">Completed</button>
+    <div className="Filter--container" onClick={handleFilterClick}>
+      <span
+        id="all"
+        className={cx("Filter--value", {
+          "Filter--value-active": completedFilter === null,
+        })}
+      >
+        All
+      </span>
+      <span
+        id="active"
+        className={cx("Filter--value", {
+          "Filter--value-active": completedFilter === false,
+        })}
+      >
+        Active
+      </span>
+      <span
+        id="completed"
+        className={cx("Filter--value", {
+          "Filter--value-active": completedFilter === true,
+        })}
+      >
+        Completed
+      </span>
     </div>
   );
 };
