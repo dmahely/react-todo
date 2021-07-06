@@ -1,12 +1,24 @@
 .Todos--container {
-  max-width: 400px;
+  max-width: 550px;
   margin: 0 auto;
 }
 
 .Todos--inner-container {
   margin-top: 20px;
-  border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   background-color: var(--todo-bg-color);
   color: var(--todo-color);
   box-shadow: 6px 9px 31px -6px rgba(0, 0, 0, 0.75);
+}
+
+@media screen and (max-width: 500px) {
+  .Todos--container {
+    margin-top: 40px;
+    padding: 10px;
+  }
+
+  .Todos--inner-container {
+    border-radius: 5px;
+  }
 }

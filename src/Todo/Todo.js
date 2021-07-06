@@ -5,7 +5,7 @@ import "./Todo.css";
 import cx from "classnames";
 
 const Todo = ({ id, task, isCompleted, setTodos, todos }) => {
-  const handleCompleteClick = (e) => {
+  const handleCompleteClick = () => {
     todos[id].isCompleted = !todos[id].isCompleted;
     setTodos((todos) => [...todos]);
   };
@@ -33,7 +33,11 @@ const Todo = ({ id, task, isCompleted, setTodos, todos }) => {
             alt="Check"
           />
         </button>
-        <label className="Todo--task">{task}</label>
+        <label
+          className={cx("Todo--task", { "Todo--task-checked": isCompleted })}
+        >
+          {task}
+        </label>
       </div>
       <div className="Todo--right">
         <img

@@ -1,6 +1,9 @@
 .App {
   background-image: var(--bg-image);
   background-repeat: no-repeat;
+  height: 100vh;
+  background-color: var(--bg-color);
+  padding-top: 40px;
 }
 
 .App--theme-light {

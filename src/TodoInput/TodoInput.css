@@ -8,13 +8,12 @@
 }
 
 .TodoInput--button {
-  border: 1px solid black;
-  padding: 5px;
+  border: 1px solid var(--light-grayish-blue);
   text-decoration: none;
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  margin: 0 20px;
+  margin: 0 10px 0 20px;
   background: none;
   display: flex;
 }
